@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     
     
-    
     func countOfSymbolsInName(myName: String) {
         let myName = myName
         var countOfSymbols = 0
