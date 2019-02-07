@@ -15,14 +15,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
    
         countOfSymbolsInName(myName: "Ivan Umanets") //task 1
+        countOfSymbolsInNameVerseTwo(myName: "Ivan Umanets")
         
     }
     
     
-    
+    func countOfSymbolsInNameVerseTwo(myName: String) {
+    print ("\(myName.count) symbols in your name including space between given and family names")
+    }
     
     func countOfSymbolsInName(myName: String) {
-        let myName = myName
         var countOfSymbols = 0
         for _ in myName {
             countOfSymbols = countOfSymbols + 1
