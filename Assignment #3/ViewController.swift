@@ -18,32 +18,48 @@ class ViewController: UIViewController {
         countOfSymbolsInNameVerseTwo(myName: "Charles Manson")
         checkMiddleName(middleName: "Pavlovich")     // task 2
         nameWithoutSpace(name: "LohPedalniy")
-        commaInNumbers(someString: "123456789")
-        chekingPassword(password: "qweRtsd")
+        
+    
        
+        chekingPassword(password: "asdassad")
+
     
     }
     
-   
-    
-    func chekingPassword (password: String){
-        var someString = password
-        for char in someString {
-            if checkingPasswordForUppercase(character: char){
-                print("good")
-            }
+    func chekingPassword(password: String) {
+        var result = 0
+        if checkingPasswordForLowercase(password: password) {
+            result += 1
         }
+        if checkingPasswordForUppercase(password: password) {
+            result += 1
+        }
+        if checkingPasswordForNumbers(password: password) {
+            result += 1
+        }
+        if checkingPasswordForSpecialSymbols(password: password) {
+            result += 1
+        }
+        if result == 4 {
+            result += 1
+        }
+        print ("\(result)")
     }
+
     
-    
-    func checkingPasswordForNumbers (password: String) -> Bool {
-        var numberInPassword = String(password)
+    func checkingPasswordForNumbers(password: String) -> Bool {
         let numbersInPassword = Int(password.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
-        return true
-    
+        if numbersInPassword == nil {
+            return false
+        }
+        else {
+            return true
+        }
+        
     }
     
-    func checkingPasswordForUppercase(character: Character) -> Bool{
+    
+    func checkingSymbolForUppercase(character: Character) -> Bool {
         let stringOfCharacter = String(character)
         let uppercasedCharacter = stringOfCharacter.uppercased()
         if stringOfCharacter == uppercasedCharacter {
@@ -52,6 +68,39 @@ class ViewController: UIViewController {
             return false
         }
     }
+    
+    
+    func checkingPasswordForLowercase(password: String) -> Bool {
+        for char in password {
+            if !checkingSymbolForUppercase(character: char) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func checkingPasswordForUppercase(password: String) -> Bool {
+        for char in password {
+            if checkingSymbolForUppercase(character: char) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    
+    func checkingPasswordForSpecialSymbols(password: String) -> Bool {
+        let symbolsChecking = CharacterSet.symbols
+        let punctuationSymbolsChecking = CharacterSet.punctuationCharacters
+        for char in password.unicodeScalars {
+            if symbolsChecking.contains(char) || punctuationSymbolsChecking.contains(char) {
+                return true
+            }
+        }
+        return false
+    }
+
+
     
     func commaInNumbers (someString: String) {
         
