@@ -18,10 +18,7 @@ class ViewController: UIViewController {
         countOfSymbolsInNameVerseTwo(myName: "Charles Manson")
         checkMiddleName(middleName: "Pavlovich")     // task 2
         nameWithoutSpace(name: "LohPedalniy")
-        
-    
-       
-        chekingPassword(password: "asdassad")
+        chekingPassword(password: "asdaQGUYVGI12432%^$^%ssad")
 
     
     }
@@ -46,18 +43,16 @@ class ViewController: UIViewController {
         print ("\(result)")
     }
 
-    
     func checkingPasswordForNumbers(password: String) -> Bool {
-        let numbersInPassword = Int(password.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
-        if numbersInPassword == nil {
-            return false
-        }
-        else {
-            return true
-        }
-        
+    let numbersInPassword = Int(password.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+    if numbersInPassword == nil {
+        return false
+    }
+    else {
+        return true
     }
     
+}
     
     func checkingSymbolForUppercase(character: Character) -> Bool {
         let stringOfCharacter = String(character)
@@ -68,7 +63,6 @@ class ViewController: UIViewController {
             return false
         }
     }
-    
     
     func checkingPasswordForLowercase(password: String) -> Bool {
         for char in password {
@@ -88,7 +82,6 @@ class ViewController: UIViewController {
         return false
     }
     
-    
     func checkingPasswordForSpecialSymbols(password: String) -> Bool {
         let symbolsChecking = CharacterSet.symbols
         let punctuationSymbolsChecking = CharacterSet.punctuationCharacters
@@ -100,8 +93,6 @@ class ViewController: UIViewController {
         return false
     }
 
-
-    
     func commaInNumbers (someString: String) {
         
         var someString = someString
