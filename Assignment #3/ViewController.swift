@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     
     }
     
+    func sortingNumbers() {
+        var someArray = [4,5,2,7,9,0,2,1,6,3]
+        
+    }
+    
     func chekingPassword(password: String) {
         var result = 0
         if checkingPasswordForLowercase(password: password) {
